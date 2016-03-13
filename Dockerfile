@@ -1,4 +1,4 @@
-FROM rodrigomiguele/oracle-java
+FROM rodrigomiguele/oracle-jdk
 
 RUN apk add --update curl libxtst libxrender && \
     ln -s /lib/ld-musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
