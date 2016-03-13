@@ -1,17 +1,7 @@
-FROM alpine
+FROM rodrigomiguele/oracle-java
 
-ENV HOME /root
-ENV JAVA_HOME /opt/jdk
-ENV PATH $PATH:$JAVA_HOME/bin
-
-COPY glibc-2.21-r2.apk $HOME
-
-RUN mkdir /opt && \
-    apk add --update curl libxtst libxrender && \
-    ln -s /lib/ld-musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
-    cd $HOME && \
-    apk add --allow-untrusted glibc-2.21-r2.apk && \
-    rm -f glibc-2.21-r2.apk
+RUN apk add --update curl libxtst libxrender && \
+    ln -s /lib/ld-musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
 
 ENV IDEA_URL 'https://d1opms6zj7jotq.cloudfront.net/idea/ideaIC-15.0.4.tar.gz'
 
