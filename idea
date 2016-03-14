@@ -1,4 +1,9 @@
 #!/bin/bash
 
 xhost +local:all
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/:/home/developer rodrigomiguele/intellij-idea:15-jdk8
+docker run -it --rm \
+	-e DISPLAY=$DISPLAY \
+	-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
+	-v $HOME/:/home/developer/ \
+	-v /usr/share/fonts/:/user/share/fonts/
+	rodrigomiguele/intellij-idea:15-jdk8
