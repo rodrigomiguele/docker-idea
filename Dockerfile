@@ -1,4 +1,4 @@
-FROM alpine
+FROM frolvlad/alpine-glibc
 
 ENV JAVA_HOME /opt/jdk
 ENV PATH $PATH:$JAVA_HOME/bin
