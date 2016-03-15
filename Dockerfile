@@ -1,11 +1,9 @@
-FROM alpine
-
-RUN apk add --update curl openjdk8 libxtst libxrender ttf-liberation && \
-    ln -s /lib/ld-musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
+FROM rodrigomiguele/oracle-jdk
 
 ENV IDEA_URL 'https://d1opms6zj7jotq.cloudfront.net/idea/ideaIC-15.0.4.tar.gz'
 
-RUN mkdir /opt && \ 
+RUN apk add --update curl libxtst libxrender && \
+    ln -s /lib/ld-musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
     cd /opt && \
     curl -O $IDEA_URL && \
     tar -xzf idea*.tar.gz && \
