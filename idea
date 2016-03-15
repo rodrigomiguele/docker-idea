@@ -2,8 +2,9 @@
 
 xhost +local:all
 docker run -it --rm \
+	--net host \
 	-e DISPLAY=$DISPLAY \
 	-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
 	-v $HOME/:/home/developer/ \
-	-v /usr/share/fonts/:/user/share/fonts/ \
+	-v /usr/share/fonts/:/usr/share/fonts/ \
 	rodrigomiguele/intellij-idea:15-jdk8
